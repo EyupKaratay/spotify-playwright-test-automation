@@ -51,24 +51,10 @@ export default defineConfig({
         headless: false,
       },
     },
-
-    {
-      name: 'webkit',
-      use: {
-        browserName: 'webkit',
-        headless: false,
-      },
-    },
-
+    
     {
       name: 'Microsoft Edge',
-      use: {
-        browserName: 'chromium',
-        channel: 'msedge',
-        headless: false,
-        viewport: null,
-        launchOptions: { args: ['--start-maximized'] },
-      },
+      use: { ...devices['Desktop Edge'] },
     },
 
     /* Test against mobile viewports. */
