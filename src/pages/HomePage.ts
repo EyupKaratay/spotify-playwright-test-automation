@@ -13,7 +13,7 @@ export class HomePage{
 
         this.page=page;
         
-        this.libraryButton=page.getByRole('button', { name: /Your Library/i });
+        this.libraryButton=page.getByRole('button', { name: 'Collapse Your Library' });
         this.expectedYourLibraryText="Your Library";
 
         this.userNameButton=page.getByTestId('user-widget-link')

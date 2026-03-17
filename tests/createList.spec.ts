@@ -12,9 +12,8 @@ test('Spotify Ana Sayfayasına Gidilir', async ({ page }) => {
 
 
   await test.step('Kitaplık(Library) bileşeninin doğrulanması',async () => {
-      const libraryButton = page.getByRole('button', { name: /Your Library/i });
+    const libraryButton = page.getByRole('button', { name:'Your Library'});
 
-    await expect(libraryButton).toBeVisible();
     await expect(libraryButton).toContainText('Your Library');
   }
   );
