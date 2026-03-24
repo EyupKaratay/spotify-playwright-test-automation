@@ -43,6 +43,56 @@ export default defineConfig({
         launchOptions: { args: ['--start-maximized'] },
       },
     },
+    /*
+    { name: 'setup', testMatch: /.*\.setup\.ts/ },
+
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/user.json',
+      },
+      dependencies: ['setup'],
+    },
+    
+    */ 
+
+    /*
+    
+    {
+      name: 'chromium',
+      use: { 
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1920, height: 1080 }
+      },
+    },
+
+    {
+      name: 'firefox',
+      use: { 
+        ...devices['Desktop Firefox'],
+        viewport: { width: 1920, height: 1080 },
+      },
+    },
+
+    {
+      name: 'webkit',
+      use: { 
+        ...devices['Desktop Safari'],
+        viewport: { width: 1920, height: 1080 },
+      },
+    },
+
+    {
+      name: 'Microsoft Edge',
+      use: { 
+        ...devices['Desktop Edge'],
+        channel: 'msedge',
+        viewport: { width: 1920, height: 1080 },
+      },
+    },
+    
+    */ 
     
     {
       name: 'firefox',
