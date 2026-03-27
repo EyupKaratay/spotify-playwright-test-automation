@@ -10,7 +10,6 @@ test('Spotify Ana Sayfayasına Gidilir', async ({ page }) => {
     await page.goto('https://open.spotify.com/');
   });
 
-
   await test.step('Kitaplık(Library) bileşeninin doğrulanması',async () => {
     const libraryButton = page.getByRole('button', { name:'Your Library'});
 
@@ -19,7 +18,6 @@ test('Spotify Ana Sayfayasına Gidilir', async ({ page }) => {
   );
   
 });
-
 
 test('spotify ana sayfa logged-in kontrol', async ({ page }) => {
   await page.goto('https://open.spotify.com/');

@@ -51,7 +51,6 @@ export class PlaylistPage{
         await this.playListNameEditButton.fill('Favorilerim');
     }
 
-    
     async uploadImage(){
         await this.imageUpload.setInputFiles('/home//pardus//İndirilenler//Shire.jpg');
         await this.page.getByRole('button', { name: 'Save' }).click();
@@ -68,6 +67,14 @@ export class PlaylistPage{
     }
 
     async addedMusicVerification(){
-        await expect(this.caravanWhiplashJazzMusic).toBeVisible();
+        await expect(this.caravanWhiplashJazzMusic).toContainText('Caravan');
     }
+
+    async deletePlaylist(){
+        await this.playListMoreOptions.click();
+        await this.page.getByRole('menuitem', { name: 'Delete' }).click();
+        await this.page.getByRole('button', { name: 'Delete' }).click();
+    }
+
+    
 }

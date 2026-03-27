@@ -1,20 +1,20 @@
 import{test,expect} from "@playwright/test";
-import{HomePage} from "../src/pages/HomePage";
+import{BasePage} from "../src/pages/BasePage";
 import { PlaylistPage} from "../src/pages/PlaylistPage";
 
 test.use({storageState: "spotify-session.json"});
 
 test('Spotify Oynatma Litesi Oluşturma,düzenleme ve doğrulama',async({page})=> {
 
-    const homePage=new HomePage(page);
+    const basePage=new BasePage(page);
     const playlistPage=new PlaylistPage(page);
 
     await   test.step('Playlist Oluşturulur ve doğrulama yapılır',async () => {
 
-        await homePage.goToSpotify();
-        await homePage.homePageVerification();
-        await homePage.userSessionVerification();
-        await homePage.rejectingCooking();
+        await basePage.goToSpotify();
+        await basePage.homePageVerification();
+        await basePage.userSessionVerification();
+        await basePage.rejectingCooking();
 
         await playlistPage.createPlaylist();
     });
@@ -31,6 +31,6 @@ test('Spotify Oynatma Litesi Oluşturma,düzenleme ve doğrulama',async({page})=
     });
 
     await test.step('Oynatma listesi silinir ve doğrulama yapılır',async ()=>{
-
+        await playlistPage.deletePlaylist();
     });
 });

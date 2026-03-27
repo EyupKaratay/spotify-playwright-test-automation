@@ -1,12 +1,14 @@
 import{expect,Page,Locator} from "@playwright/test";
 
-export class HomePage{
+
+export class BasePage{
     readonly page: Page;
 
     readonly libraryButton: Locator;
     readonly expectedYourLibraryText: string;
     readonly userNameButton:Locator;
     readonly rejectCookiesButton: Locator;
+    
 
 
     constructor (page: Page){
@@ -15,10 +17,9 @@ export class HomePage{
         
         this.libraryButton=page.getByRole('button', { name: 'Collapse Your Library' });
         this.expectedYourLibraryText="Your Library";
-
         this.userNameButton=page.getByTestId('user-widget-link')
-
         this.rejectCookiesButton=page.getByRole('button',{name:'REJECT ALL'});
+        
     };
 
     async goToSpotify(){
