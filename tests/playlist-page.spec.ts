@@ -12,10 +12,7 @@ test('Spotify Oynatma Litesi Oluşturma,düzenleme ve doğrulama',async({page})=
     await   test.step('Playlist Oluşturulur ve doğrulama yapılır',async () => {
 
         await basePage.goToSpotify();
-        await basePage.homePageVerification();
-        await basePage.userSessionVerification();
-        await basePage.rejectingCooking();
-
+        await basePage.rejectingCookies();
         await playlistPage.createPlaylist();
     });
 

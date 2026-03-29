@@ -6,9 +6,9 @@ export class BasePage{
 
     readonly libraryButton: Locator;
     readonly expectedYourLibraryText: string;
-    readonly userNameButton:Locator;
     readonly rejectCookiesButton: Locator;
-    
+    readonly spotifyLogo: Locator; 
+    readonly userNameButton:Locator;
 
 
     constructor (page: Page){
@@ -17,24 +17,21 @@ export class BasePage{
         
         this.libraryButton=page.getByRole('button', { name: 'Collapse Your Library' });
         this.expectedYourLibraryText="Your Library";
-        this.userNameButton=page.getByTestId('user-widget-link')
         this.rejectCookiesButton=page.getByRole('button',{name:'REJECT ALL'});
-        
+        this.spotifyLogo=page.getByTestId('global-nav-bar').getByRole('link', { name: 'Spotify' });
+        this.userNameButton=page.getByTestId('user-widget-link');
     };
 
     async goToSpotify(){
         await this.page.goto("https://open.spotify.com/");
     };
 
-    async homePageVerification(){
-        await expect(this.libraryButton).toContainText(this.expectedYourLibraryText);
-    };
-
-    async userSessionVerification(){
-        await expect(this.userNameButton).toBeVisible();
-    };
-
-    async rejectingCooking(){
-        await this.rejectCookiesButton.click();
+    async rejectingCookies(){
+        try {
+        await this.rejectCookiesButton.click({timeout: 7000});
+        }catch(error)
+        {
+            console.log('Cookie pop-up çıkmadı');
+        }
     };  
 };

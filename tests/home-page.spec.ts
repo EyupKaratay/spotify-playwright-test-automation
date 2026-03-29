@@ -1,32 +1,16 @@
-import { test, expect } from '@playwright/test';
-
-  // storageState ile kaydedilmiş oturumu kullan
+import { test, expect } from '../src/fixture/custom-fixture';
   test.use({ storageState: 'spotify-session.json' });
 
-test('Spotify Ana Sayfayasına Gidilir', async ({ page }) => {
-
-
-  await test.step('Anasayfaya Gidilir', async () => {
-    await page.goto('https://open.spotify.com/');
+  test.beforeEach('Spotify Ana Sayfayasına Gidilir ve Çerezler Reddedilir', async ({ basePage }) => {
+    await basePage.goToSpotify();  
+    await basePage.rejectingCookies();
   });
 
-  await test.step('Kitaplık(Library) bileşeninin doğrulanması',async () => {
-    const libraryButton = page.getByRole('button', { name:'Your Library'});
-
-    await expect(libraryButton).toContainText('Your Library');
-  }
-  );
+  test('Spotify Ana Sayfası ve Kullanıcı Oturumu Kontrol Edilir', async ({ basePage }) => {
+    await expect(basePage.spotifyLogo).toBeVisible();
+    await expect(basePage.userNameButton).toBeVisible();
+  });
   
-});
 
-test('spotify ana sayfa logged-in kontrol', async ({ page }) => {
-  await page.goto('https://open.spotify.com/');
-  // basit bir kontrol: profil linki ya da kullanıcı menüsü görünür mü?
-  await expect(page.locator('button[aria-label="Profile"]')).toBeVisible({ timeout: 1000 }).catch(async () => {
-    // eğer farklı elementse, sadece URL kontrolü yap
-    await expect(page).toHaveURL(/open\.spotify\.com/);
-  });
 
-  // buraya test adımlarını ekle (arama, play butonuna basma vs.)
-});
  
