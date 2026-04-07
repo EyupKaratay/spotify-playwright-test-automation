@@ -15,7 +15,7 @@ export class SearchPage {
         this.page = page;
         this.songSearchBox = page.getByTestId('search-input');
         this.artistName = page.getByRole('link', { name: 'John Wasson' }).nth(2);
-        this.song = page.getByRole('link', { name: 'Caravan' }).nth(2);
+        this.song = page.getByRole('link', { name: 'Caravan' }).nth(1);
         this.goToAlbum = page.getByRole('menuitem', { name: 'Go to album' });
         this.albumPage = page.getByTestId('entityTitle').getByRole('heading', { name: 'Whiplash (Original Motion' });
         this.artistFollowButton = page.getByTestId('action-bar-row').getByRole('button', { name: 'Follow' });

@@ -22,8 +22,9 @@ export class BasePage{
         this.userNameButton=page.getByTestId('user-widget-link');
     };
 
+    
     async goToSpotify(){
-        await this.page.goto("https://open.spotify.com/");
+        await this.page.goto('/');
     };
 
     async rejectingCookies(){

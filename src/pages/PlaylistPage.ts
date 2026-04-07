@@ -33,7 +33,6 @@ export class PlaylistPage{
     }
 
 
-    
     async createPlaylist(){
         await this.createPlayListButton.click();
         await this.page.waitForTimeout(250);

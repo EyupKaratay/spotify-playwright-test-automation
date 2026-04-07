@@ -9,6 +9,7 @@ type EmailOptions = {
 };
 
 export async function sendScreenshotEmail(options: EmailOptions) {
+
   const {
     to,
     subject = 'Playwright Test Failure Screenshot',
@@ -20,13 +21,13 @@ export async function sendScreenshotEmail(options: EmailOptions) {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'sender email@gmail.com',
-      pass: 'sender email app password',
+      user: process.env.SENDER_EMAIL as string,
+      pass: process.env.SENDER_APP_PASSWORD as string,
     },
   });
 
   const mailOptions = {
-    from: 'targetemail@gmail.com',
+    from: process.env.TARGET_EMAIL as string,
     to,
     subject,
     text,

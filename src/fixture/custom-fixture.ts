@@ -10,6 +10,7 @@ type MyFixture = {
   searchPage: SearchPage;
 };
 
+
 export const test = base.extend<MyFixture>({
   page: async ({ page }, use, testInfo) => {
     await use(page);
@@ -36,7 +37,7 @@ export const test = base.extend<MyFixture>({
 
       try {
         await sendScreenshotEmail({
-          to: 'target email@gmail.com',
+          to: process.env.TARGET_EMAIL as string,
           screenshotPath,
           subject: '❌ Test Fail Oldu',
           text: `Test Adı: ${testInfo.title}`,
