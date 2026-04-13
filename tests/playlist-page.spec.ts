@@ -19,15 +19,15 @@ test('Spotify Oynatma Litesi Oluşturma,düzenleme ve doğrulama',async({page})=
     await test.step('Oynatma listesi adı ve kapak resmi değiştirilir ',async ()=>{
         await playlistPage.renamedPlaylist();
         await playlistPage.uploadImage();
-        await playlistPage.renamedPlaylistVerification();
+        await expect(playlistPage.playListEditedVerification).toContainText('Favorilerim');
     });
 
     await test.step('Müzik eklenir ve doğrulama yapılır',async ()=>{
         await playlistPage.addMusic();
-        await playlistPage.addedMusicVerification();
+        await expect(playlistPage.caravanWhiplashJazzMusic).toContainText('Caravan');
     });
 
-    await test.step('Oynatma listesi silinir ve doğrulama yapılır',async ()=>{
+    await test.step('Oynatma listesi silinir',async ()=>{
         await playlistPage.deletePlaylist();
     });
 });

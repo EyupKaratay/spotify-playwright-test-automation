@@ -55,19 +55,12 @@ export class PlaylistPage{
         await this.page.getByRole('button', { name: 'Save' }).click();
     }
 
-    async renamedPlaylistVerification(){
-        await expect(this.playListEditedVerification).toContainText('Favorilerim');
-    }
-
     async addMusic(){
         await this.musicSearchBox.click();
         await this.musicSearchBox.fill('Caravan',);
         await this.addMusicButton.click();
     }
 
-    async addedMusicVerification(){
-        await expect(this.caravanWhiplashJazzMusic).toContainText('Caravan');
-    }
 
     async deletePlaylist(){
         await this.playListMoreOptions.click();
@@ -75,5 +68,4 @@ export class PlaylistPage{
         await this.page.getByRole('button', { name: 'Delete' }).click();
     }
 
-    
 }
