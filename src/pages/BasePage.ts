@@ -27,12 +27,14 @@ export class BasePage{
         await this.page.goto('/');
     };
 
+    
     async rejectingCookies(){
         try {
-        await this.rejectCookiesButton.click({timeout: 7000});
+        await this.rejectCookiesButton.click({timeout: 6000});
         }catch(error)
         {
             console.log('Cookie pop-up çıkmadı');
         }
-    };  
+    };
+    
 };
