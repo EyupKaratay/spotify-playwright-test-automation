@@ -47,7 +47,7 @@ export const test = base.extend<MyFixture>({
       }
     }
   },
-
+  
   basePage: async ({ page }, use) => {
     const basePage = new BasePage(page);
     await use(basePage);

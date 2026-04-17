@@ -3,8 +3,8 @@ import{Page,Locator} from "@playwright/test";
 export class SearchPage {
     readonly page: Page;
     readonly songSearchBox: Locator;
-    readonly artistName: Locator;
     readonly song: Locator;
+    readonly artistName: Locator;
     readonly goToAlbum: Locator;
     readonly albumPage: Locator;
     readonly artistFollowButton: Locator;
@@ -14,13 +14,13 @@ export class SearchPage {
     constructor(page: Page) {
         this.page = page;
         this.songSearchBox = page.getByTestId('search-input');
-        this.artistName = page.getByRole('link', { name: 'John Wasson' }).nth(2);
-        this.song = page.getByRole('link', { name: 'Caravan' }).nth(1);
+        this.song = page.getByTestId('track-list').getByRole('link', { name: 'Rast Makamı - Turkish Music' });
+        this.artistName = page.getByRole('link', { name: 'Oruç Güvenç ve Tümata' }).nth(1);
         this.goToAlbum = page.getByRole('menuitem', { name: 'Go to album' });
-        this.albumPage = page.getByTestId('entityTitle').getByRole('heading', { name: 'Whiplash (Original Motion' });
+        this.albumPage = page.getByTestId('entityTitle').getByRole('heading', { name: 'Rast Makamı - Turkish Music' });
         this.artistFollowButton = page.getByTestId('action-bar-row').getByRole('button', { name: 'Follow' });
         this.artistUnfollowingButton = page.getByRole('button', { name: 'Following' });
-        this.artistPageName = page.getByTestId('adaptiveEntityTitle').getByText('John Wasson');
+        this.artistPageName = page.getByTestId('adaptiveEntityTitle').getByText('Oruç Güvenç ve Tümata');
     }
 
     async searchForSong(songName: string) {

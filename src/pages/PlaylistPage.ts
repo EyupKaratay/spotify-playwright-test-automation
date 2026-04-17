@@ -13,7 +13,7 @@ export class PlaylistPage{
     readonly playListEditedVerification: Locator;
     readonly musicSearchBox: Locator;
     readonly addMusicButton: Locator;
-    readonly caravanWhiplashJazzMusic: Locator;
+    readonly rastMakamiMusiki: Locator;
     readonly imageUpload: Locator;
 
     constructor(page: Page){
@@ -27,7 +27,7 @@ export class PlaylistPage{
         this.playListVerification = page.getByRole('button', { name: 'My Playlist #2 – Edit details' });
         this.playListEditedVerification = page.getByRole('button', { name: 'Favorilerim – Edit details' });
         this.musicSearchBox = page.getByRole('searchbox', { name: 'Search for songs or episodes' });
-        this.caravanWhiplashJazzMusic = page.getByTestId('playlist-tracklist').getByTestId('internal-track-link');
+        this.rastMakamiMusiki = page.getByTestId('playlist-tracklist').getByTestId('internal-track-link');
         this.addMusicButton = page.getByTestId('add-to-playlist-button').first();
         this.imageUpload = page.getByTestId('image-file-picker');
     }
@@ -57,7 +57,7 @@ export class PlaylistPage{
 
     async addMusic(){
         await this.musicSearchBox.click();
-        await this.musicSearchBox.fill('Caravan',);
+        await this.musicSearchBox.fill('Rast Makamı');
         await this.addMusicButton.click();
     }
 

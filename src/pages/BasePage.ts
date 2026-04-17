@@ -29,12 +29,8 @@ export class BasePage{
 
     
     async rejectingCookies(){
-        try {
-        await this.rejectCookiesButton.click({timeout: 6000});
-        }catch(error)
-        {
-            console.log('Cookie pop-up çıkmadı');
-        }
+        
+        await this.rejectCookiesButton.click();
     };
     
 };
