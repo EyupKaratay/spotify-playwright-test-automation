@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:chromium": "playwright test --project=chromium",
+    "test:headed": "playwright test --headed",
+    "typecheck": "tsc --noEmit",
+    "report": "playwright show-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -12,7 +18,8 @@
     "@playwright/test": "^1.58.2",
     "@types/node": "^25.4.0",
     "@types/nodemailer": "^7.0.11",
-    "dotenv": "^17.4.0"
+    "dotenv": "^17.4.0",
+    "typescript": "^7.0.2"
   },
   "dependencies": {
     "nodemailer": "^8.0.4"
