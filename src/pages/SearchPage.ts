@@ -14,7 +14,9 @@ export class SearchPage {
     constructor(page: Page) {
         this.page = page;
         this.songSearchBox = page.getByTestId('search-input');
-        this.song = page.getByTestId('track-list').getByRole('link', { name: 'Rast Makamı - Turkish Music' });
+        this.song = page
+        .getByRole('row', { name: 'Rast Makamı - Turkish Music Therapy' }).first()
+        .getByRole('link', { name: 'Rast Makamı - Turkish Music Therapy' });        
         this.artistName = page.getByRole('link', { name: 'Oruç Güvenç ve Tümata' }).nth(1);
         this.goToAlbum = page.getByRole('menuitem', { name: 'Go to album' });
         this.albumPage = page.getByTestId('entityTitle').getByRole('heading', { name: 'Rast Makamı - Turkish Music' });
