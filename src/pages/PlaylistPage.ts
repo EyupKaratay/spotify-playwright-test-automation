@@ -1,4 +1,8 @@
 import{Page,Locator,expect} from "@playwright/test";
+import path from "path";
+
+/* Kapak görseli repo içinde tutulur; makineye bağlı mutlak yol kullanılmaz */
+const PLAYLIST_COVER_IMAGE = path.resolve(__dirname, "../../test-assets/shire.jpg");
 
 export class PlaylistPage{
 
@@ -51,7 +55,7 @@ export class PlaylistPage{
     }
 
     async uploadImage(){
-        await this.imageUpload.setInputFiles('/home//pardus//İndirilenler//Shire.jpg');
+        await this.imageUpload.setInputFiles(PLAYLIST_COVER_IMAGE);
         await this.page.getByRole('button', { name: 'Save' }).click();
     }
 
